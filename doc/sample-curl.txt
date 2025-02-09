@@ -1,0 +1,30 @@
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X GET http://localhost:9000/students
+[{"id":3,"lastName":"Konoplyanko","firstName":"Ivan","middleName":"Igorevich","group":"1","averageMark":4.5}]
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X PUT -H "Content-Type: application/json" -d '{"lastName": "Pupok", "firstName": "Stas", "middleName": "Petrovich", "group": "2", "averageMark": 4}' http://localhost:9000/students
+{"lastName":"Pupok","firstName":"Stas","middleName":"Petrovich","group":"2","averageMark":4}
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X GET http://localhost:9000/students
+[{"id":3,"lastName":"Konoplyanko","firstName":"Ivan","middleName":"Igorevich","group":"1","averageMark":4.5},{"id":4,"lastName":"Pupok","firstName":"Stas","middleName":"Petrovich","group":"2","averageMark":4}]
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X GET http://localhost:9000/students/4
+{"id":4,"lastName":"Pupok","firstName":"Stas","middleName":"Petrovich","group":"2","averageMark":4}
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X POST -H "Content-Type: application/json" -d '{"lastName": "Pupok", "firstName": "Stas", "middleName": "Petrovich", "group": "2", "averageMark": 3}' http://localhost:9000/students/4
+{"id":4,"lastName":"Pupok","firstName":"Stas","middleName":"Petrovich","group":"2","averageMark":3}
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X GET http://localhost:9000/students
+[{"id":3,"lastName":"Konoplyanko","firstName":"Ivan","middleName":"Igorevich","group":"1","averageMark":4.5},{"id":4,"lastName":"Pupok","firstName":"Stas","middleName":"Petrovich","group":"2","averageMark":3}]
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X DELETE http://localhost:9000/students/4
+
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X GET http://localhost:9000/students
+[{"id":3,"lastName":"Konoplyanko","firstName":"Ivan","middleName":"Igorevich","group":"1","averageMark":4.5}]
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl http://localhost:9000/authorize
+
+admin@DESKTOP-S4RP3FN MINGW64 ~
+$ curl -X GET http://localhost:9000/callback?code=code-aoutorize
+{"access_token":"sample-access-token"}
