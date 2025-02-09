@@ -22,7 +22,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --Dumped database
-CREATE DATABASE student_managementTest;
+CREATE DATABASE student_management;
 
 --Dumped ROLE
 CREATE ROLE postgres WITH LOGIN PASSWORD 'admin';
